@@ -30,7 +30,7 @@ header {
 	background-size: cover;
 	background-attachment: fixed;
     width: 100%;
-    background-color: #FF9800;
+    background-color: #E64A19;
 }
 
 ul {
@@ -56,7 +56,7 @@ ul li a{
 
 ul li a:hover {
 	background-color: #fff;
-    color: #FF9800;
+    color: #E64A19;
     list-style-type: none;
     text-decoration: none;
 }
@@ -80,11 +80,11 @@ ul li a:active {
 }
 
 #input{
-    color: #FF9800;
+    color: #E64A19;
 }
 
 #jobtext{
-    color: #FF9800;
+    color: #E64A19;
     font-family: 'Avenir', sans-serif;
     font-size: 30px;
     padding-top: 30px;
@@ -154,23 +154,28 @@ td{
 
   .column2 {
       float: left;
-      width: 25%;
+      width: 20%;
   }
 
   .column3 {
       float: float;
-      width: 25%;
+      width: 20%;
   }
 
   .column4 {
     float: float;
-    width: 25%;
+    width: 20%;
+    }
+
+  .column5 {
+    float: float;
+    width: 20%;
     }
   
   /* Remove extra left and right margins, due to padding */
   .row {margin: 0 50px;
     color: #fff;
-    background-color: #E64A19;}
+    background-color: #FF9800;}
   
   /* Clear floats after the columns */
   .row:after {
@@ -184,6 +189,10 @@ td{
   /* Style the counter cards */
 .card {
     text-align: center;
-    background-color: #E64A19;
+    background-color: #FF9800;
     height: 150px;
+  }
+
+  #resume {
+      font-size: 30px;
   }
