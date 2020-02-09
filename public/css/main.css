@@ -4,14 +4,234 @@
     font-size: 100px;
 }
 
+@font-face {
+    font-family: Avenir;
+    src: url("fonts/AvenirNextLTPro-Regular.otf") format("opentype");
+}
+
 body{
-    margin: 0px;
+    margin: auto;
     width: 100%;
+}
+
+#page-top{
+    margin-top: 0px;
 }
 
 #mainPageImage{
     margin: 0px;
-    height: 1000px;
+    height: 800px;
     background-color: red; /* For browsers that do not support gradients */
-    background-image: linear-gradient(to right, red , yellow); /* Standard syntax (must be last) */
+    background-image: linear-gradient(to right, #E64A19, #FF9800); /* Standard syntax (must be last) */
+}
+
+#myHeader{
+    background-image: linear-gradient(to right, #E64A19, #FF9800); /* Standard syntax (must be last) */
+    background-position: center center;
+    width: 100%;
+    height: 150px;
+}
+
+#logo{
+    background: white;
+    width: 12%;
+    float: left;
+    opacity: 0.8;
+    margin: 10px;
+    border-radius: 5px;
+    height: 100px;
+    object-fit: cover;
+}
+
+#headerText{
+    font-family: 'Avenir', sans-serif;
+    font-size: 100px;
+    color: #fff;
+    text-align: center;
+    padding-top: 100px;
+}
+
+ul {
+	float: right;
+	list-style-type: none;
+	margin-top: 1.5%;
+	padding-right: 100px;
+}
+
+ul li{
+	display: inline-block;
+	padding: 7px;
+}
+
+ul li a{
+	text-decoration: none;
+	color: white;
+	padding: 7px 20px;
+	border: 1px solid transparent;
+	transition: 0.4s ease;
+	border-radius: 10px;
+}
+
+ul li a:hover {
+	background-color: white;
+    color: #9D9D9D;
+    list-style-type: none;
+}
+
+#startup{
+    width: 30%;
+    background-color: #fff;
+    border-radius: 10px;
+    float: left;
+    text-align: center;
+    margin-left: 10%;
+    margin-top: 50px;
+    height: 200px;
+}
+
+#student{
+    width: 30%;
+    background-color: #fff;
+    border-radius: 10px;
+    float: right;
+    text-align: center;
+    margin-right: 10%;
+    margin-top: 50px;
+    height: 200px;
+}
+
+#startuptext, #studenttext{
+    font-family: 'Avenir', sans-serif;
+    padding: 20px;
+    color: #2A9D8F;
+}
+
+.link1 {
+    text-decoration: none;
+    font-family: 'Monteserrat', sans-serif;
+	color: #fff;
+	padding: 10px 20px;
+	border: 1px solid transparent;
+	transition: 0.4s ease;
+	border-radius: 10px;
+	font-size: 20px;
+	background-color: #ff6666;
+	box-shadow: 10px 10px 5px #A24141;
+}
+
+.link2 {
+	text-decoration: none;
+	padding: 10px 20px;
+	border: 1px solid transparent;
+	transition: 0.4s ease;
+	border-radius: 10px;
+	font-size: 20px;
+	background-color: #ff6666;
+    box-shadow: 10px 10px 5px #A24141;
+    color: #fff;
+}
+
+.link1:hover, .link2:hover {
+	text-decoration: none;
+	color: #FDCDCD;
+	padding: 10px 20px;
+	border: 1px solid transparent;
+	transition: 0.4s ease;
+	border-radius: 10px;
+	font-size: 20px;
+	background-color: #A24141;
+	box-shadow: none;
+}
+
+span{
+    color: #fff;
+    font-family: 'Avenir', 'sans-serif';
+}
+
+.hr-text {
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: black;
+    text-align: center;
+    height: 1.5em;
+    opacity: .5;
+}
+
+#or {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap; 
+    margin-top: 350px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+#or > span {
+    position: relative;
+    display: inline-block;
+}
+
+#or > span:before,
+#or > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: #fff;
+}
+
+#or > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+#or > span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+
+#already{
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    padding-top: 10px;
+    font-family: 'Avenir', 'sans-serif';
+}
+
+#accountdone{
+    display: inline-block;
+    text-align: center;
+    margin-left: 38%;
+}
+
+.link3 {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Avenir', sans-serif;
+	color: #ff6666;
+	padding: 10px 20px;
+	border: 1px solid transparent;
+	transition: 0.4s ease;
+	border-radius: 10px;
+	font-size: 20px;
+	background-color: #fff;
+}
+
+.link3:hover {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Avenir', sans-serif;
+	color: #fff;
+	padding: 10px 20px;
+	transition: 0.4s ease;
+	border-radius: 10px;
+	font-size: 20px;
+    background-color: #2A9D8F;
+    box-shadow: none;
 }
