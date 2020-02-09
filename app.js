@@ -5,6 +5,11 @@ var express = require('express'),
     Student = require("./models/student"),
     Startup = require("./models/startup")
 
+var mongoose = require('mongoose')
+mongoose.connect("mongodb://localhost/internet-db")
+    
+var user = null;
+
 var app = express()
 app.use(express.static(__dirname + '/public'));
 app.engine('html', require('ejs').renderFile);
@@ -22,15 +27,42 @@ passport.use('studentLocal', new LocalStrategy(Student.authenticate()));
 passport.use('startupLocal', new LocalStrategy(Startup.authenticate()));
 
 passport.serializeUser((user, done) => {
-    console.log(user)
-    done(null, user.id)
+    done(null, {id: user.id, type: user.type})
 })
 
-passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
-      done(err, user);
+// passport.serializeUser(Student.serializeUser)
+// passport.deserializeUser(Student.deserializeUser)
+
+passport.deserializeUser(function(obj, done) {
+    console.log("Test" + obj.id);
+    switch (obj.type) {
+        case 'student':
+            Student.findById(obj.id)
+                .then(user => {
+                    if (user) {
+                        done(null, user);
+                    }
+                    else {
+                        done(new Error('user id not found:' + objid, null));
+                    }
+                });
+            break;
+        case 'startup':
+            Startup.findById(obj.id)
+                .then(device => {
+                    if (device) {
+                        done(null, device);
+                    } else {
+                        done(new Error('device id not found:' + obj.id, null));
+                    }
+                });
+            break;
+        default:
+            done(new Error('no entity type:', obj.type), null);
+            break;
+    }
+      
     });
-  });
 
 var fs = require('fs')
 
@@ -47,10 +79,6 @@ var storage =   multer.diskStorage({
 
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended: true}))
-
-var mongoose = require('mongoose')
-mongoose.connect("mongodb://localhost/internet-db")
-
 
 
 app.get("/", function(req, res){
@@ -80,20 +108,25 @@ app.post("/signup/student", (req, res) => {
             Student.register(new Student({username: req.body.username,
                 password: req.body.password,
                 name: req.body.name,
+                type: 'student',
                 image: req.body.image,
                 email: req.body.email,
                 grade: req.body.grade,
                 skills: req.body.skills,
                 resume: filename,
-                location: null,}), req.body.password, function(err, user){
-                if(err){
-                    console.log(err)
-                    return res.send("Signup error")
-                }
-                passport.authenticate("local")(req, res, function(){
-                    //console.log(req.user.name)
-                    res.redirect("/home/student")
-                })
+                location: null,}), req.body.password, function(err, student){
+                    console.log(user)
+                    if(err){
+                        console.log(err)
+                        return res.send("Signup error")
+                    }
+                    passport.authenticate("studentLocal")(req, res, function(){
+                        user = student
+                        // req.user = req.session.user
+                        res.render("student_home.ejs", {
+                            student: user
+                        })
+                    })
                 })
             //res.redirect("/home/student")
         }
@@ -102,28 +135,42 @@ app.post("/signup/student", (req, res) => {
     
 })
 
+app.get("/signup/startup", (req, res) => {
+    res.sendFile("startup_signup.html", {root: "public"})
+})
+
 app.post("/signup/startup", (req, res) => {
-    Startup.create({
-        username: req.body.username,
+    Startup.register(new Startup({username: req.body.username,
         password: req.body.password,
+        type: 'startup',
         name: req.body.name,
+        email: req.body.email,
         description: req.body.description,
-        location: req.body.location,
-    })
-    res.redirect("/home/startup")
+        location: null,}), req.body.password, function(err, user){
+            if(err){
+                console.log(err)
+                return res.send("Signup error")
+            }
+            passport.authenticate("startupLocal")(req, res, function(){
+                //console.log(req.user.name)
+                res.render("/home/startup")
+            })
+        })
 })
 
 app.get("/home/student", (req, res) =>{
-    Student.find({}, function(err, students){
-        if(err){
-            console.log("Error")
-        } else{
-            //console.log(students)
-            res.render("student_home.ejs", {
-                students: students
-            })
-        }
-    })
+    console.log(user)
+    
+    // Student.find({}, function(err, students){
+    //     if(err){
+    //         console.log("Error")
+    //     } else{
+    //         //console.log(students)
+    //         res.render("student_home.ejs", {
+    //             students: students
+    //         })
+    //     }
+    // })
     
 })
 
@@ -152,8 +199,14 @@ app.get('/login/student', (req, res) => {
 })
 
 app.post('/login/student', passport.authenticate("studentLocal"), function(req, res){
-    console.log(req.user.name)
-    res.redirect("/home/student")
+    user = req.user
+    console.log(req.user.id)
+    res.render("student_home.ejs", {
+        student: req.user
+    })
 })
 
+app.get('login/startup', (req, res) =>{
+    res.render("startup_login.ejs")
+})
 
