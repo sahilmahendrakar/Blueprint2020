@@ -4,13 +4,15 @@ app.use(express.static(__dirname + '/public'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
+var fs = require('fs')
+
 var multer = require('multer')
 var storage =   multer.diskStorage({
     destination: function (req, file, callback) {
       callback(null, './uploads');
     },
     filename: function (req, file, callback) {
-      callback(null, file.originalname + '-' + Date.now());
+      callback(null, file.originalname + '-' + Date.now() + '.pdf');
     }
   });
   var upload = multer({ storage : storage}).single('resume');
@@ -103,15 +105,16 @@ app.listen(8080, function(){
     console.log("Listening on Port 8080")
 })
 
-app.get("/resume", function(req, res){
-    res.sendFile("resume_test.html", {root: "public"})
-})
-
-app.post("/resume", function(req, res){
-    upload(req,res,function(err) {
-        if(err) {
-            res.send("error")
+app.get("/resume/:filename", function(req, res){
+    var filename = req.params.filename
+    console.log(filename)
+    var tempFile="./uploads/" + filename;
+    console.log(tempFile)
+    fs.readFile(tempFile, function (err,data){
+        if(err){
+            console.log(err)
         }
-        res.send("File is uploaded");
-    });
+        res.contentType("application/pdf");
+        res.send(data);
+  });
 })
