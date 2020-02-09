@@ -13,7 +13,8 @@
           <div class="navbar-header">
             <div id ="logoimage">
                 <img src="images/Screen Shot 2020-02-09 at 10.45.05 AM.png" alt="Logo" id = "logo">
-                <a href="url" id ="Home">Home</a>
+                <a href="index.html" id ="Header">Home</a>
+                <a href="CHANGE THIS" id ="Header2">Start-Up</a>
           </div>
       </nav>
 
@@ -22,59 +23,73 @@
     <!-- Default form register -->
 <form class="text-center border border-light p-5" action="#!">
 
-    <p class="h4 mb-4">Sign up</p>
+    <p class="h4 mb-4">Student Sign-Up</p>
 
     <div class="form-row mb-4">
         <div class="col">
-            <!-- First name -->
-            <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
-        </div>
-        <div class="col">
-            <!-- Last name -->
-            <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+            <!--  name -->
+            <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name" name="name">
         </div>
     </div>
+
+    <!-- Username -->
+    <input type="text" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Username" name="username">
+
+     <!-- Password -->
+     <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" name="password">
+     <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4"></small>
 
     <!-- E-mail -->
-    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+    <input type="text" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" name="email">
 
-    <!-- Password -->
-    <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-        At least 8 characters and 1 digit
-    </small>
-
-    <!-- Phone number -->
-    <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+    <!-- Location -->
+    <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Location (ex: Boston, MA)" aria-describedby="defaultRegisterFormPhoneHelpBlock" name="location">
     <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-        Optional - for two step authentication
     </small>
 
-    <!-- Newsletter -->
-    <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
-        <label class="custom-control-label" for="defaultRegisterFormNewsletter">Subscribe to our newsletter</label>
+    <!-- Grade -->
+<div id = "rad">
+    <small class="label">Grade</small>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input  type="radio" name="grade" value="8"> 8th or Below<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input   type="radio" name="grade" value="9"> 9th<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input   type="radio" name="grade" value="10"> 10th<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input   type="radio" name="grade" value="11"> 11th<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input   type="radio" name="grade" value="12"> 12th<br>
+    <br>
+  </div>
+  
+  <!-- Skills -->
+    <small class="label">Skills</small>
+    <div id = "rad">
+    <input  type="checkbox" name="skills" value="8"> Java<br>
+    <input   type="checkbox" name="skills" value="9"> Python<br>
+    <input   type="checkbox" name="skills" value="10"> MatLab<br>
+    <input   type="checkbox" name="skills" value="11"> Swift<br>
+    <input   type="checkbox" name="skills" value="12"> R<br>
+    <br>
     </div>
+
+    <small class="label">Upload Resume</small>
+
+    <input id="input-b2" name="resume" type="file" class="file" data-show-preview="false">
 
     <!-- Sign up button -->
     <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
 
-    <!-- Social register -->
-    <p>or sign up with:</p>
 
     <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
     <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
     <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
     <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
 
-    <hr>
-
-    <!-- Terms of service -->
-    <p>By clicking
-        <em>Sign up</em> you agree to our
-        <a href="" target="_blank">terms of service</a>
-
 </form>
 <!-- Default form register -->
+
 </body>
+
 </html>
