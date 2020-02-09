@@ -1,0 +1,198 @@
+@font-face {
+    font-family: Avenir;
+    src: url("fonts/AvenirNextLTPro-Regular.otf") format("opentype");
+}
+
+* {
+    font-family: 'Avenir', sans-serif;
+    margin: auto;
+    display: block;
+    border-collapse: collapse;
+}
+
+#page{
+    margin-top: 0px;
+}
+
+#webcontainer {
+	width: 100%;
+}
+
+#myHeader {
+	width: 100%;
+	position: center;
+}
+
+header {
+	height: 70px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+    width: 100%;
+    background-color: #E64A19;
+}
+
+ul {
+	float: right;
+	list-style-type: none;
+	margin-top: 7px;
+	padding-right: 100px;
+}
+
+ul li{
+	display: inline-block;
+	padding: 7px;
+}
+
+ul li a{
+	text-decoration: none;
+	color: #fff;
+	padding: 7px 20px;
+	border: 1px solid transparent;
+	transition: 0.4s ease;
+	border-radius: 10px;
+}
+
+ul li a:hover {
+	background-color: #fff;
+    color: #E64A19;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+ul li a:active {
+	background-color: #FFDFDF;
+	color: #9D9D9D;
+}
+
+.logo{
+	margin: 5px 80px;
+	float: left;
+	width: 10%;
+    height: auto;
+    padding: 1.5% 20px;
+}
+
+#username {
+    color: #fff;
+    font-style: italic;
+}
+
+#input{
+    color: #E64A19;
+}
+
+#jobtext{
+    color: #E64A19;
+    font-family: 'Avenir', sans-serif;
+    font-size: 30px;
+    padding-top: 30px;
+    margin-left: 45%;
+}
+
+#complogo{
+    width: 80px;
+    height: 80px;
+    float: left;
+    border-radius: 50px;
+}
+
+#leftside{
+    float: left;
+    width: 50%;
+}
+
+#rightside{
+    float: right;
+    width: 50%;
+}
+
+/*table{
+    display: grid;
+    border: 1px solid #FF9800;
+    display: absolute;
+}
+
+tr{
+    width: 100%;
+    border: red;
+}
+
+td{
+    border: 1px solid #ddd;
+}
+
+#JOBDESCRIPT{
+    padding-right: 30px;
+}
+
+#jobin{
+    height: 42px;
+}
+#jobtextlol{
+    float:left;
+}
+
+#jobtit{
+    float:right;
+}
+
+#skills{
+    float: left;
+}
+
+#contact{
+    float: right;
+}*/
+
+
+.column1 {
+    float: left;
+    width: 10%;
+  }
+
+  .column2 {
+      float: left;
+      width: 20%;
+  }
+
+  .column3 {
+      float: float;
+      width: 20%;
+  }
+
+  .column4 {
+    float: float;
+    width: 20%;
+    }
+
+  .column5 {
+    float: float;
+    width: 20%;
+    }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 50px;
+    color: #fff;
+    background-color: #FF9800;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    padding: 0;
+    margin: 0px;
+    display: table;
+    clear: both;
+  }
+
+  /* Style the counter cards */
+.card {
+    text-align: center;
+    background-color: #FF9800;
+    height: 150px;
+  }
+
+  #resume {
+      font-size: 30px;
+  }
