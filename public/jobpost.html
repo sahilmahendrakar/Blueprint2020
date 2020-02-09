@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INTERNet Start-Up Job Post</title>
-    <link rel="stylesheet" type="text/css" href="css/boostrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/boostrap.css">
 </head>
 
 <body id = "startupppp">
@@ -14,13 +14,13 @@
             <div id ="logoimage">
                 <img src="images/Screen Shot 2020-02-09 at 10.45.05 AM.png" alt="Logo" id = "logo">
                 <a href="index.html" id ="Header">Home</a>
-                <a href="startuphome.html" id ="Header2">Account</a>
+                <a href="/home/startup" id ="Header2">Account</a>
           </div>
         </nav>
     
     </div>
     <!-- Default form register -->
-<form id = "formlogjobpost" class="text-center border border-light p-5" action="#!">
+<form id = "formlogjobpost" class="text-center border border-light p-5" action="/startup/job/new" method="POST">
 
     <p class="h4 mb-4">Job Posting</p>
 
@@ -37,16 +37,18 @@
     <!-- Skills -->
     <small class="label">Skills</small>
     <div id = "rad">
-    <input  type="checkbox" name="skills" value="8"> Java<br>
-    <input   type="checkbox" name="skills" value="9"> Python<br>
-    <input   type="checkbox" name="skills" value="10"> MatLab<br>
-    <input   type="checkbox" name="skills" value="11"> Swift<br>
-    <input   type="checkbox" name="skills" value="12"> R<br>
+        <input  type="checkbox" name="skills" value="java"> Java<br>
+        <input   type="checkbox" name="skills" value="javascript"> Javascript<br>
+        <input   type="checkbox" name="skills" value="html"> HTML<br>
+        <input   type="checkbox" name="skills" value="python"> Python<br>
+        <input   type="checkbox" name="skills" value="matlab"> MatLab<br>
+        <input   type="checkbox" name="skills" value="swift"> Swift<br>
+        <input   type="checkbox" name="skills" value="r"> R<br>
     <br>
     </div>
     
      <!-- Password -->
-     <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Job Description" aria-describedby="defaultRegisterFormPasswordHelpBlock" name="job-description">
+     <input type="text" id="defaultRegisterFormPassword" class="form-control" placeholder="Job Description" aria-describedby="defaultRegisterFormPasswordHelpBlock" name="description">
      <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4"></small>
 
     <!-- E-mail -->

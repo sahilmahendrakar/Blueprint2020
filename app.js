@@ -123,9 +123,7 @@ app.post("/signup/student", (req, res) => {
                     passport.authenticate("studentLocal")(req, res, function(){
                         user = student
                         // req.user = req.session.user
-                        res.render("student_home.ejs", {
-                            student: user
-                        })
+                        res.redirect('/home/student')
                     })
                 })
             //res.redirect("/home/student")
@@ -146,21 +144,31 @@ app.post("/signup/startup", (req, res) => {
         name: req.body.name,
         email: req.body.email,
         description: req.body.description,
-        location: null,}), req.body.password, function(err, user){
+        location: null,}), req.body.password, function(err, startup){
             if(err){
                 console.log(err)
                 return res.send("Signup error")
             }
             passport.authenticate("startupLocal")(req, res, function(){
+                user = startup
                 //console.log(req.user.name)
-                res.render("/home/startup")
+                res.render("startup_home.ejs")
             })
         })
 })
 
 app.get("/home/student", (req, res) =>{
-    console.log(user)
-    
+    Startup.find({}).then(startups => {
+        startups.forEach(startup => {
+                console.log(startup)
+                console.log(startup.jobs)
+                res.render("student_home.ejs", {
+                    student: user,
+                    startups: startups,
+            });
+        })
+    })
+
     // Student.find({}, function(err, students){
     //     if(err){
     //         console.log("Error")
@@ -174,6 +182,19 @@ app.get("/home/student", (req, res) =>{
     
 })
 
+app.get('/home/startup', function(req, res){
+    Student.find({}).then(startups => {
+        startups.forEach(startup => {
+            console.log(startup)
+            console.log(startup.jobs)
+            res.render("student_home.ejs", {
+                student: user,
+                jobs: startup.jobs,
+            })
+        });
+        
+    })
+})
 
 app.get("/resume/:filename", function(req, res){
     var filename = req.params.filename
@@ -201,12 +222,57 @@ app.get('/login/student', (req, res) => {
 app.post('/login/student', passport.authenticate("studentLocal"), function(req, res){
     user = req.user
     console.log(req.user.id)
-    res.render("student_home.ejs", {
-        student: req.user
-    })
+    res.redirect("/home/student")
 })
 
-app.get('login/startup', (req, res) =>{
+app.get('/login/startup',  (req, res) =>{
     res.render("startup_login.ejs")
 })
 
+app.post('/login/startup', passport.authenticate("startupLocal"), (req, res) =>{
+    user = req.user
+    res.redirect('/home/startup/students')
+})
+
+app.get('/home/startup/students', (req, res) => {
+    Student.find({}).then(students => {
+            console.log(students)
+            res.render("startup_home.ejs", {
+                startup: user,
+                students: students,
+            })
+        });
+})
+
+////// Make Job
+app.get("/startup/job/new", (req, res) => {
+    console.log(user)
+    res.sendFile("jobpost.html", {root: "public"})
+})
+
+app.post("/startup/job/new", (req, res) => {
+    var job = {
+        title: req.body.title,
+        skills: req.body.skills,
+        description: req.body.description,
+        salary: req.body.salary
+    }
+    console.log(job)
+    console.log(user.jobs)
+    var jobArr = null;
+    if(user.jobs && user.jobs.length !== 0){
+        jobArr = user.jobs
+        jobArr.jobs.push(job)
+    } else{
+        jobArr = [job]
+    }
+    console.log(jobArr)
+    console.log(Startup.updateOne({username: user.username}, {$set : {jobs: jobArr}}, function(err, res){
+        if(err){console.log(err)}
+        //res.send("updated")
+    }))
+
+    Startup.find({username: user.username}).then(startup => {
+        user = startup;
+    })
+})

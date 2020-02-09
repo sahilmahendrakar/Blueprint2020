@@ -53,7 +53,5 @@ function Matching(Startup, AllStudents){
     return AllStudents.reverse();
 }
 
-
-
 console.log(Matching(testStartup, testAllStudents))
 
