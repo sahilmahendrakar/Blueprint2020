@@ -1,0 +1,11 @@
+#title {
+    color: #EA8989;
+    padding: 7px 20px;
+    font-size: 100px;
+}
+
+#mainPageImage{
+    height: 200px;
+    background-color: red; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, red , yellow); /* Standard syntax (must be last) */
+}
