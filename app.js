@@ -85,7 +85,7 @@ app.post("/signup/student", (req, res) => {
                 grade: req.body.grade,
                 skills: req.body.skills,
                 resume: filename,
-                location: req.body.location,}), req.body.password, function(err, user){
+                location: null,}), req.body.password, function(err, user){
                 if(err){
                     console.log(err)
                     return res.send("Signup error")

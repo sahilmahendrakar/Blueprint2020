@@ -1,17 +1,101 @@
-<h1>Student Signup</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERNet Student SignUp</title>
+    <link rel="stylesheet" type="text/css" href="/css/boostrap.css">
+</head>
 
-<form enctype="multipart/form-data" action="/signup/student" method="POST">
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="password" placeholder="Password">
-    <input type="text" name="name" placeholder="Name">
-    <input type="text" name="email" placeholder="Email">
-    <input type="text" name="image" placeholder="Image">
-    <input type="number" name="grade" placeholder="Grade">
-    <input type="file" name="resume">
-    <input type="submit">
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <div id ="logoimage">
+                <img src="images/Screen Shot 2020-02-09 at 10.45.05 AM.png" alt="Logo" id = "logo">
+                <a href="index.html" id ="Header">Home</a>
+                <a href="StartUp SignUp Page.html" id ="Header2">Start-Up</a>
+          </div>
+      </nav>
+
+    
+    </div>
+    <!-- Default form register -->
+<form class="text-center border border-light p-5" enctype="multipart/form-data" action="/signup/student" method="POST">
+
+    <p class="h4 mb-4">Student Sign-Up</p>
+
+    <div class="form-row mb-4">
+        <div class="col">
+            <!--  name -->
+            <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name" name="name">
+        </div>
+    </div>
+
+    <!-- Username -->
+    <input type="text" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Username" name="username">
+
+     <!-- Password -->
+     <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock" name="password">
+     <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4"></small>
+
+    <!-- E-mail -->
+    <input type="text" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" name="email">
+
+    <!-- Location -->
+    <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Location (ex: Boston, MA)" aria-describedby="defaultRegisterFormPhoneHelpBlock" name="location">
+    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+    </small>
+
+    <!-- Grade -->
+<div id = "rad">
+    <small class="label">Grade</small>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input  type="radio" name="grade" value="8"> 8th or Below<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input   type="radio" name="grade" value="9"> 9th<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input   type="radio" name="grade" value="10"> 10th<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input   type="radio" name="grade" value="11"> 11th<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input   type="radio" name="grade" value="12"> 12th<br>
+    <br>
+  </div>
+  
+  <!-- Skills -->
+    <small class="label">Skills</small>
+    <div id = "rad">
+    <input  type="checkbox" name="skills" value="8"> Java<br>
+    <input   type="checkbox" name="skills" value="9"> Python<br>
+    <input   type="checkbox" name="skills" value="10"> MatLab<br>
+    <input   type="checkbox" name="skills" value="11"> Swift<br>
+    <input   type="checkbox" name="skills" value="12"> R<br>
+    <br>
+    </div>
+
+    <small class="label">Upload Resume</small>
+
+    <input id="input-b2" name="resume" type="file" class="file" data-show-preview="false"><br>
+    <br>
+
+    <!-- image -->
+    <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Image (link)" aria-describedby="defaultRegisterFormPhoneHelpBlock" name="location">
+    <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+    </small>
+
+    <!-- Sign up button -->
+    <button class="btn btn-info my-4 btn-block" type="submit">Sign Up</button>
+
+
+    <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+    <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+
 </form>
+<!-- Default form register -->
 
-<!-- <form enctype="multipart/form-data" action="/resume", method="POST">
-    <input type="file" name="resume">
-    <input type="submit" value="Upload Resume">
-</form> -->
+</body>
+
+</html>
