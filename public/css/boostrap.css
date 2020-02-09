@@ -4395,16 +4395,44 @@
   
   #Header{
     float:right;
-    margin-top: 3%;
+    margin-top: 2.5%;
     Color:#E64A19;
+    padding: 7px 20px;
     }
 
     #Header2{
       float:right;
       margin-right: 20px;
-      margin-top: 3%;
+      margin-top: 2.5%;
       Color:#E64A19;
+      padding: 7px 20px;
       }
+
+
+      #Header:hover{
+        float:right;
+        margin-top: 2.5%;
+        color: white;
+    background-color:#E64A19;
+    text-decoration: none;
+    padding: 7px 20px;
+    border: 1px solid transparent;
+    transition: 0.4s ease;
+    border-radius: 10px;
+        }
+    
+        #Header2:hover{
+          float:right;
+          margin-right: 20px;
+          margin-top: 2.5%;
+          color: white;
+    background-color:#E64A19;
+    padding: 7px 20px;
+    border: 1px solid transparent;
+    transition: 0.4s ease;
+    border-radius: 10px;
+    text-decoration: none;
+          }
 
   .navbar {
     position: relative;
