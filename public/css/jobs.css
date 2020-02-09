@@ -196,3 +196,14 @@ td{
   #resume {
       font-size: 30px;
   }
+
+  #skills, #description{
+      font-size: 20px;
+  }
+
+  #view {
+      font-size: 30px;
+      color: white;
+      text-decoration: none;
+
+  }
