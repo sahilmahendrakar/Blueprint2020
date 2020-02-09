@@ -4,8 +4,14 @@
     font-size: 100px;
 }
 
+body{
+    margin: 0px;
+    width: 100%;
+}
+
 #mainPageImage{
-    height: 200px;
+    margin: 0px;
+    height: 1000px;
     background-color: red; /* For browsers that do not support gradients */
     background-image: linear-gradient(to right, red , yellow); /* Standard syntax (must be last) */
 }
