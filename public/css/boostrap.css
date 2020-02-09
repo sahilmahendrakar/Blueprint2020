@@ -227,7 +227,13 @@
     #formlog{
       background-color: white;
       margin-top: 40px;
-      height:530px
+      height:300px;
+    }
+
+    #formlog1{
+      background-color: white;
+      margin-top: 40px;
+      height:550px;
     }
 
     #logoimage{
