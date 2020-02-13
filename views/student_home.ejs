@@ -32,20 +32,22 @@
                 <p>Job Offers:</p>
             </div>
 
+<% startups.forEach(startup => { %>
+<% startup.jobs.forEach(job => { %>
             <div class="row">
                 <div class="column1">
                   <div class="card">
-                    <img src = "images/comp.png" id = "complogo">
-                    <p>Company Name</p>
+                    <img src = "/images/comp.png" id = "complogo">
+                    <p><%= startup.name %></p>
                   </div>
                 </div>
               
                 <div class="column2">
                   <div class="card">
                       <div>
-                        <h3 id = "job">Job Title</h3>
+                        <h3 id = "job"><%= job.title %> </h3>
                       </div>
-                    <p>My Company description lmfaoooo</p>
+                    <p><<%= job.description %></p>
                   </div>
                 </div>
                 
@@ -53,7 +55,7 @@
                   <div class="card">
                       <div>
                         <h3>Matched Skills</h3>
-                        <p>Java, HTML, CSS, Node.js</p>
+                        <p><%=job.skills%></p>
                       </div>
                   </div>
                 </div>
@@ -67,7 +69,7 @@
                 </div>
               </div>
 
-
+           <% })}); %>
 
 
 

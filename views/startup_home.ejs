@@ -7,14 +7,14 @@
         <meta name = "description" content = "home page for intern web application">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link href="css/starthomepage.css" rel="stylesheet" type="text/css">
+        <link href="/css/starthomepage.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Lato|Monteserrat|M+PLUS+Rounded+1c|Poppins&display=swap" rel="stylesheet">
     </head>
 
     <body id = "page">
         <header>
             <div class = "logo">
-                <p id = "username">startup.name</p>
+                <p id = "username"><%= startup.name %></p>
             </div>
             <div class = "header">
                 <div class = "nolist">
@@ -32,19 +32,21 @@
                 <p>Potential Interns:</p>
             </div>
 
+<% students.forEach(student => { %>
+
             <div class="row">
                 <div class="column1">
                   <div class="card">
-                    <img src = "images/manavatar.png" id = "complogo">
+                    <img src = "/images/manavatar.png" id = "complogo">
                   </div>
                 </div>
               
                 <div class="column2">
                   <div class="card">
                       <div>
-                        <h3 id = "name">Name</h3>
+                        <h3 id = "name"><%=student.name%></h3>
                       </div>
-                    <p>Grade</p>
+                    <p>Grade: <%=student.grade%></p>
                   </div>
                 </div>
                 
@@ -52,7 +54,7 @@
                   <div class="card">
                       <div>
                         <h3>Matched Skills</h3>
-                        <p>Java, HTML, CSS, Node.js</p>
+                        <p><%student.skills%></p>
                       </div>
                   </div>
                 </div>
@@ -60,7 +62,7 @@
                 <div class="column4">
                     <div class="card">
                         <div>
-                          <a id = "resume">Resume</a>
+                          <a href="/resume/<%=student.resume%>"id = "resume">Resume</a>
                         </div>
                     </div>
                   </div>
@@ -75,6 +77,7 @@
               </div>
         </div>
 
+    <%}) %>
     </body>
 </html>
 
