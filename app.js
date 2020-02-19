@@ -152,7 +152,7 @@ app.post("/signup/startup", (req, res) => {
             passport.authenticate("startupLocal")(req, res, function(){
                 user = startup
                 //console.log(req.user.name)
-                res.render("startup_home.ejs")
+                res.redirect("/home/startup")
             })
         })
 })
@@ -183,15 +183,10 @@ app.get("/home/student", (req, res) =>{
 })
 
 app.get('/home/startup', function(req, res){
-    Student.find({}).then(startups => {
-        startups.forEach(startup => {
-            console.log(startup)
-            console.log(startup.jobs)
-            res.render("student_home.ejs", {
-                student: user,
-                jobs: startup.jobs,
-            })
-        });
+    Student.find({}).then(students => {
+        res.render("startup_jobs.ejs", {
+            startup: user,
+        })
         
     })
 })
@@ -216,7 +211,7 @@ app.listen(8080, function(){
 
 //LOGIN
 app.get('/login/student', (req, res) => {
-    res.render("student_login.ejs")
+    res.sendFile("student_login.html", {root: "public"})
 })
 
 app.post('/login/student', passport.authenticate("studentLocal"), function(req, res){
@@ -226,18 +221,18 @@ app.post('/login/student', passport.authenticate("studentLocal"), function(req, 
 })
 
 app.get('/login/startup',  (req, res) =>{
-    res.render("startup_login.ejs")
+    res.sendFile("startup_login.html", {root: "public"})
 })
 
 app.post('/login/startup', passport.authenticate("startupLocal"), (req, res) =>{
     user = req.user
-    res.redirect('/home/startup/students')
+    res.redirect('/home/startup/')
 })
 
-app.get('/home/startup/students', (req, res) => {
+app.get('/home/startup/applicants', (req, res) => {
     Student.find({}).then(students => {
             console.log(students)
-            res.render("startup_home.ejs", {
+            res.render("startup_applicants.ejs", {
                 startup: user,
                 students: students,
             })
